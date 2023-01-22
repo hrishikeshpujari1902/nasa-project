@@ -1,0 +1,14 @@
+docker build . -t pujarihrishikesh/nasa-project
+
+ssh connection to aws ec2
+ssh -i "nasa.pem" ec2-user@18.183.163.255
+
+sudo yum update -y
+
+yum install docker
+
+sudo usermod -a -G docker ec2-user // to give access to ec2-user to group docker
+
+docker login
+
+docker run --restart=always -p 8000:8000 pujarihrishikesh/nasa-project
